@@ -1,0 +1,49 @@
+index,action name,caption,reference image path,method a,method b,method c,method d,method e,method f,method g
+0,pushup,A person is doing a pushup.,/home/haoxin003/mount_datasets/HAA500/frames/pushup/pushup_016/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+1,pushup,A person is doing a pushup.,/home/haoxin003/mount_datasets/HAA500/frames/pushup/pushup_017/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+2,pushup,A person is doing a pushup.,/home/haoxin003/mount_datasets/HAA500/frames/pushup/pushup_018/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+3,pushup,A person is doing a pushup.,/home/haoxin003/mount_datasets/HAA500/frames/pushup/pushup_019/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+4,soccer_shoot,A person is shooting a soccer ball.,/home/haoxin003/mount_datasets/HAA500/frames/soccer_shoot/soccer_shoot_016/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+5,soccer_shoot,A person is shooting a soccer ball.,/home/haoxin003/mount_datasets/HAA500/frames/soccer_shoot/soccer_shoot_018/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+6,soccer_shoot,A person is shooting a soccer ball.,/home/haoxin003/mount_datasets/HAA500/frames/soccer_shoot/soccer_shoot_019/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+7,soccer_shoot,A person is shooting a soccer ball.,/home/haoxin003/mount_datasets/HAA500/testing_images/soccer_shoot_1.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+8,running_in_place,A person is running in place.,/home/haoxin003/mount_datasets/HAA500/frames/running_in_place/running_in_place_016/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+9,running_in_place,A person is running in place.,/home/haoxin003/mount_datasets/HAA500/frames/running_in_place/running_in_place_017/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+10,running_in_place,A person is running in place.,/home/haoxin003/mount_datasets/HAA500/frames/running_in_place/running_in_place_018/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+11,running_in_place,A person is running in place.,/home/haoxin003/mount_datasets/HAA500/testing_images/running_in_place_2.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+12,arm_wave,A person is doing an arm wave.,/home/haoxin003/mount_datasets/HAA500/frames/arm_wave/arm_wave_016/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+13,arm_wave,A person is doing an arm wave.,/home/haoxin003/mount_datasets/HAA500/frames/arm_wave/arm_wave_017/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+14,arm_wave,A person is doing an arm wave.,/home/haoxin003/mount_datasets/HAA500/frames/arm_wave/arm_wave_018/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+15,arm_wave,A person is doing an arm wave.,/home/haoxin003/mount_datasets/HAA500/frames/arm_wave/arm_wave_019/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+16,shoot_dance,A person is performing the shoot dance.,/home/haoxin003/mount_datasets/HAA500/frames/shoot_dance/shoot_dance_016/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+17,shoot_dance,A person is performing the shoot dance.,/home/haoxin003/mount_datasets/HAA500/frames/shoot_dance/shoot_dance_017/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+18,shoot_dance,A person is performing the shoot dance.,/home/haoxin003/mount_datasets/HAA500/frames/shoot_dance/shoot_dance_018/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+19,shoot_dance,A person is performing the shoot dance.,/home/haoxin003/mount_datasets/HAA500/frames/shoot_dance/shoot_dance_019/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+20,hugging_human,Two people are hugging.,/home/haoxin003/mount_datasets/HAA500/frames/hugging_human/hugging_human_016/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+21,hugging_human,Two people are hugging.,/home/haoxin003/mount_datasets/HAA500/frames/hugging_human/hugging_human_017/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+22,hugging_human,Two people are hugging.,/home/haoxin003/mount_datasets/HAA500/frames/hugging_human/hugging_human_018/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+23,hugging_human,Two people are hugging.,/home/haoxin003/mount_datasets/HAA500/testing_images/hugging_human_2.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+24,drinking_with_cup,A person is drinking from a cup.,/home/haoxin003/mount_datasets/HAA500/frames/drinking_with_cup/drinking_with_cup_016/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+25,drinking_with_cup,A person is drinking from a cup.,/home/haoxin003/mount_datasets/HAA500/frames/drinking_with_cup/drinking_with_cup_017/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+26,drinking_with_cup,A person is drinking from a cup.,/home/haoxin003/mount_datasets/HAA500/frames/drinking_with_cup/drinking_with_cup_018/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+27,drinking_with_cup,A person is drinking from a cup.,/home/haoxin003/mount_datasets/HAA500/frames/drinking_with_cup/drinking_with_cup_019/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+28,sprint_run,A person is running a sprint.,/home/haoxin003/mount_datasets/HAA500/frames/sprint_run/sprint_run_016/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+29,sprint_run,A person is running a sprint.,/home/haoxin003/mount_datasets/HAA500/frames/sprint_run/sprint_run_017/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+30,sprint_run,A person is running a sprint.,/home/haoxin003/mount_datasets/HAA500/frames/sprint_run/sprint_run_018/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+31,sprint_run,A person is running a sprint.,/home/haoxin003/mount_datasets/HAA500/frames/sprint_run/sprint_run_019/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+32,ALS_IceBucket_Challenge,A person is pouring water over their head for the ALS Ice Bucket Challenge.,/home/haoxin003/mount_datasets/HAA500/frames/ALS_IceBucket_Challenge/ALS_IceBucket_Challenge_016/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+33,ALS_IceBucket_Challenge,A person is pouring water over their head for the ALS Ice Bucket Challenge.,/home/haoxin003/mount_datasets/HAA500/frames/ALS_IceBucket_Challenge/ALS_IceBucket_Challenge_017/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+34,ALS_IceBucket_Challenge,A person is pouring water over their head for the ALS Ice Bucket Challenge.,/home/haoxin003/mount_datasets/HAA500/frames/ALS_IceBucket_Challenge/ALS_IceBucket_Challenge_018/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+35,ALS_IceBucket_Challenge,A person is pouring water over their head for the ALS Ice Bucket Challenge.,/home/haoxin003/mount_datasets/HAA500/frames/ALS_IceBucket_Challenge/ALS_IceBucket_Challenge_019/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+36,balancebeam_jump,An athlete is performing a balance beam jump.,/home/haoxin003/mount_datasets/HAA500/frames/balancebeam_jump/balancebeam_jump_016/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+37,balancebeam_jump,An athlete is performing a balance beam jump.,/home/haoxin003/mount_datasets/HAA500/frames/balancebeam_jump/balancebeam_jump_017/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+38,balancebeam_jump,An athlete is performing a balance beam jump.,/home/haoxin003/mount_datasets/HAA500/frames/balancebeam_jump/balancebeam_jump_018/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+39,balancebeam_jump,An athlete is performing a balance beam jump.,/home/haoxin003/mount_datasets/HAA500/frames/balancebeam_jump/balancebeam_jump_019/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+40,canoeing_sprint,A person is sprinting in a canoe.,/home/haoxin003/mount_datasets/HAA500/frames/canoeing_sprint/canoeing_sprint_016/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+41,canoeing_sprint,A person is sprinting in a canoe.,/home/haoxin003/mount_datasets/HAA500/frames/canoeing_sprint/canoeing_sprint_017/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+42,canoeing_sprint,A person is sprinting in a canoe.,/home/haoxin003/mount_datasets/HAA500/frames/canoeing_sprint/canoeing_sprint_018/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+43,canoeing_sprint,A person is sprinting in a canoe.,/home/haoxin003/mount_datasets/HAA500/frames/canoeing_sprint/canoeing_sprint_019/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+44,chopping_wood,A person is chopping wood.,/home/haoxin003/mount_datasets/HAA500/frames/chopping_wood/chopping_wood_016/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+45,chopping_wood,A person is chopping wood.,/home/haoxin003/mount_datasets/HAA500/frames/chopping_wood/chopping_wood_018/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+46,chopping_wood,A person is chopping wood.,/home/haoxin003/mount_datasets/HAA500/frames/chopping_wood/chopping_wood_019/00001.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA
+47,chopping_wood,A person is chopping wood.,/home/haoxin003/mount_datasets/HAA500/testing_images/chopping_wood_1.jpg,TI2V-Zero,PIA,SparseCtrl,DynamiCrafter,DreamVideo,LAMP,FACA

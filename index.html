@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Titles and Captions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        h1 {
+            margin: 30px 0;
+            font-size: 2.5em;
+            justify-content: center;
+            color: #333;
+        }
+        h2 {
+            margin: 30px 0;
+            font-size: 1.5em;
+            justify-content: center;
+            color: #333;
+        }
+        h3 {
+            text-align: left;
+            width: 100%;
+        }
+        .image-container {
+            display: flex;
+            gap: 30px;
+            max-width: 1200px;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px; 
+        }
+        .column-text {
+            font-weight: bold;
+        }
+        .image-container img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+        .text-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 30px; 
+        }
+        .text-box {
+            display: flex;
+            justify-content: left;
+            align-items: left;
+            border: none;
+            width: 150px;
+            height: 120px;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        .gallery-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 400px;
+        }
+        .image-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px; 
+        }
+        .group img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Human Action Animation</h1>
+    <h2>Comparison of different methods</h2>
+    <div class="container" id="image-gallery"></div>
+    <script>
+        // Function to create image containers dynamically
+        function createImageContainer(caption, start_ind) {
+            const container = document.getElementById('image-gallery');
+
+            const getPaddedIndex = (index) => String(index).padStart(3, '0');
+
+            const actionTemplate = `
+                <h3>Action Description: ${caption}</h3>
+                <br>
+                <div class="image-container">
+                    <div class="column">
+                        <div class="column-text">Reference Images</div>
+                        <img src="comparisons/${getPaddedIndex(start_ind)}.jpg" alt="Image ${start_ind}">
+                        <img src="comparisons/${getPaddedIndex(start_ind+1)}.jpg" alt="Image ${start_ind+1}">
+                        <img src="comparisons/${getPaddedIndex(start_ind+2)}.jpg" alt="Image ${start_ind+2}">
+                        <img src="comparisons/${getPaddedIndex(start_ind+3)}.jpg" alt="Image ${start_ind+3}">
+                    </div>
+                    <div class="column">
+                        <div class="column-text">FLASH</div>
+                        <img src="comparisons/${getPaddedIndex(start_ind)}-g.gif" alt="Video ${start_ind}-g">
+                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-g.gif" alt="Video ${start_ind+1}-g">
+                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-g.gif" alt="Video ${start_ind+2}-g">
+                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-g.gif" alt="Video ${start_ind+3}-g">
+                    </div>
+                    <div class="column">
+                        <div class="column-text">LAMP</div>
+                        <img src="comparisons/${getPaddedIndex(start_ind)}-f.gif" alt="Video ${start_ind}-f">
+                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-f.gif" alt="Video ${start_ind+1}-f">
+                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-f.gif" alt="Video ${start_ind+2}-f">
+                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-f.gif" alt="Video ${start_ind+3}-f">
+                    </div>
+                    <div class="column">
+                        <div class="column-text">DynamiCrafter</div>
+                        <img src="comparisons/${getPaddedIndex(start_ind)}-d.gif" alt="Video ${start_ind}-d">
+                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-d.gif" alt="Video ${start_ind+1}-d">
+                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-d.gif" alt="Video ${start_ind+2}-d">
+                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-d.gif" alt="Video ${start_ind+3}-d">
+                    </div>
+                    <div class="column">
+                        <div class="column-text">DreamVideo</div>
+                        <img src="comparisons/${getPaddedIndex(start_ind)}-e.gif" alt="Video ${start_ind}-e">
+                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-e.gif" alt="Video ${start_ind+1}-e">
+                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-e.gif" alt="Video ${start_ind+2}-e">
+                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-e.gif" alt="Video ${start_ind+3}-e">
+                    </div>
+                    <div class="column">
+                        <div class="column-text">PIA</div>
+                        <img src="comparisons/${getPaddedIndex(start_ind)}-b.gif" alt="Video ${start_ind}-b">
+                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-b.gif" alt="Video ${start_ind+1}-b">
+                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-b.gif" alt="Video ${start_ind+2}-b">
+                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-b.gif" alt="Video ${start_ind+3}-b">
+                    </div>
+                    <div class="column">
+                        <div class="column-text">SparseCtrl</div>
+                        <img src="comparisons/${getPaddedIndex(start_ind)}-c.gif" alt="Video ${start_ind}-c">
+                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-c.gif" alt="Video ${start_ind+1}-c">
+                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-c.gif" alt="Video ${start_ind+2}-c">
+                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-c.gif" alt="Video ${start_ind+3}-c">
+                    </div>
+                    <div class="column">
+                        <div class="column-text">TI2V-Zero</div>
+                        <img src="comparisons/${getPaddedIndex(start_ind)}-a.gif" alt="Video ${start_ind}-a">
+                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-a.gif" alt="Video ${start_ind+1}-a">
+                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-a.gif" alt="Video ${start_ind+2}-a">
+                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-a.gif" alt="Video ${start_ind+3}-a">
+                    </div>
+                </div>
+                <br><br><br>
+            `;
+
+            // Append generated content to the container
+            container.innerHTML += actionTemplate;
+        }
+
+        // Create multiple image containers with different starting indices
+        createImageContainer('A person is performing a pushup.', 0);
+        createImageContainer('A person is shooting a soccer ball.', 4);
+        createImageContainer('A person is running in place.', 8);
+        createImageContainer('A person is performing an arm wave.', 12);
+        createImageContainer('A person is doing the shoot dance.', 16);
+        createImageContainer('Two people are hugging.', 20);
+        createImageContainer('A person is drinking from a cup.', 24);
+        createImageContainer('A person runs in a sprint.', 28);
+        createImageContainer('A person is pouring water over their head as part of the ALS Ice Bucket Challenge.', 32);
+        createImageContainer('An athlete is performing a balance beam jump.', 36);
+        createImageContainer('A person is paddling quickly in a canoe.', 40);
+        createImageContainer('A person is chopping wood.', 44);
+    </script>
+    <br>
+    <h2>Animating Internet Images</h2>
+    <div class="container" id="internet-image-gallery">
+        <!-- Row with Three Groups -->
+        <div class="gallery-row">
+            <div class="group">
+                <h3>Action Description: A person is performing a pushup.</h3>
+                <div class="image-row">
+                    <img src="internet_images/0.jpg" alt="Original Image 0">
+                    <img src="internet_images/0.gif" alt="Animation 0">
+                </div>
+            </div>
+            <div class="group">
+                <h3>Action Description: A person is performing an arm wave.</h3>
+                <div class="image-row">
+                    <img src="internet_images/1.jpg" alt="Original Image 1">
+                    <img src="internet_images/1.gif" alt="Animation 1">
+                </div>
+            </div>
+            <div class="group">
+                <h3>Action Description: A person is doing the shoot dance.</h3>
+                <div class="image-row">
+                    <img src="internet_images/2.jpg" alt="Original Image 2">
+                    <img src="internet_images/2.gif" alt="Animation 2">
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <!-- Row with Three Groups -->
+        <div class="gallery-row">
+            <div class="group">
+                <h3>Action Description: A person runs in a sprint.</h3>
+                <div class="image-row">
+                    <img src="internet_images/3.jpg" alt="Original Image 3">
+                    <img src="internet_images/3.gif" alt="Animation 3">
+                </div>
+            </div>
+            <div class="group">
+                <h3>Action Description: A person is doing the shoot dance.</h3>
+                <div class="image-row">
+                    <img src="internet_images/4.jpg" alt="Original Image 4">
+                    <img src="internet_images/4.gif" alt="Animation 4">
+                </div>
+            </div>
+            <div class="group">
+                <h3>Action Description: An astronaut is performing an arm wave.</h3>
+                <div class="image-row">
+                    <img src="internet_images/5.jpg" alt="Original Image 5">
+                    <img src="internet_images/5.gif" alt="Animation 5">
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <!-- Row with Three Groups -->
+        <div class="gallery-row">
+            <div class="group">
+                <h3>Action Description: An astronaut is running in place.</h3>
+                <div class="image-row">
+                    <img src="internet_images/6.jpg" alt="Original Image 6">
+                    <img src="internet_images/6.gif" alt="Animation 6">
+                </div>
+            </div>
+            <div class="group">
+                <h3>Action Description: An astronaut is drinking from a cup.</h3>
+                <div class="image-row">
+                    <img src="internet_images/7.jpg" alt="Original Image 7">
+                    <img src="internet_images/7.gif" alt="Animation 7">
+                </div>
+            </div>
+            <div class="group">
+                <h3>Action Description: A person is shooting a soccer ball.</h3>
+                <div class="image-row">
+                    <img src="internet_images/8.jpg" alt="Original Image 8">
+                    <img src="internet_images/8.gif" alt="Animation 8">
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+</body>
+<br>
+</html>
+
+
