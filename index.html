@@ -34,7 +34,7 @@
 
         .image-container {
             display: flex;
-            gap: 30px;
+            gap: 15px;
             max-width: 1200px;
         }
         .image-container img {
@@ -43,36 +43,29 @@
             object-fit: cover;
         }
         .large-image {
-            width: 180px !important;
-            height: 180px !important;
+            width: 150px !important;
+            height: 150px !important;
+            object-fit: cover;
+        }
+        .small-image {
+            width: 120px !important;
+            height: 120px !important;
             object-fit: cover;
         }
         .column {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 30px; 
+            gap: 10px !important; 
         }
         .column-text {
             font-weight: bold;
-        }
-        
-        .gallery-row {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
         }
         .group {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 400px;
-        }
-        .image-row {
-            display: flex;
-            justify-content: center;
-            gap: 10px; 
         }
         .group img {
             width: 180px;
@@ -86,266 +79,330 @@
     <h2>Index</h2>
     <nav>
         <ul>
-            <li><a href="#section1">Comparison of Dream Machine, KLING, and FLASH</a></li>
+            <li><a href="#section1">Comparison of Dream Machine, KLING AI, Wanx AI, and FLASH</a></li>
             <li><a href="#section2">Comparison with baselines</a></li>
-            <li><a href="#section3">Animating Internet Images Using FLASH</a></li>
+            <li><a href="#section3">Animating Internet Images</a></li>
         </ul>
     </nav>
     <br><br><br>
 
     <h2>Comparison of Dream Machine, KLING, and FLASH</h2>
     <section id="section1">
-    <div class="container" id="image-gallery-1"></div>
-    <script>
-        // Function to create image containers dynamically
-        function createImageContainer(caption, start_ind) {
-            const container = document.getElementById('image-gallery-1');
-
-            const getPaddedIndex = (index) => String(index);
-
-            const actionTemplate = `
-                <h3>Action Description: ${caption}</h3>
-                <br>
-                <div class="image-container">
-                    <div class="column">
-                        <div class="column-text">Reference Image</div>
-                        <img src="comp_tools/${getPaddedIndex(start_ind)}.jpg" class="large-image" alt="Image ${start_ind}">
+        <div class="container" id="image-gallery-1"></div>
+        <script>
+            // Function to create image containers dynamically
+            function createImageContainer(caption, start_ind) {
+                const container = document.getElementById('image-gallery-1');
+    
+                const getPaddedIndex = (index) => String(index);
+    
+                const actionTemplate = `
+                    <h3>Action Description: ${caption}</h3>
+                    <br>
+                    <div class="image-container">
+                        <div class="column">
+                            <div class="column-text">Reference Image</div>
+                            <img src="comp_tools/${getPaddedIndex(start_ind)}.jpg" class="large-image" alt="Image ${start_ind}">
+                        </div>
+                        <div class="column">
+                            <div class="column-text">Dream Machine</div>
+                            <video class="large-image" autoplay loop muted preload="none">
+                                <source src="comp_tools/${getPaddedIndex(start_ind)}-dm.mp4" alt="Video ${start_ind}-dm">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">KLING AI</div>
+                            <video class="large-image" autoplay loop muted preload="none">
+                                <source src="comp_tools/${getPaddedIndex(start_ind)}-kl.mp4" alt="Video ${start_ind}-kl">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">Wanx AI</div>
+                            <video class="large-image" autoplay loop muted preload="none">
+                                <source src="comp_tools/${getPaddedIndex(start_ind)}-wanx.mp4" alt="Video ${start_ind}-kl">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">FLASH</div>
+                            <video class="large-image" autoplay loop muted preload="none">
+                                <source src="comp_tools/${getPaddedIndex(start_ind)}-1.mp4" alt="Video ${start_ind}-1">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">Real Video</div>
+                            <video class="large-image" autoplay loop muted preload="none">
+                                <source src="comp_tools/${getPaddedIndex(start_ind)}-gt.mp4" alt="Video ${start_ind}-gt">
+                            </video>
+                        </div>
                     </div>
-                    <div class="column">
-                        <div class="column-text">Dream Machine</div>
-                        <img src="comp_tools/${getPaddedIndex(start_ind)}-dm.gif" class="large-image" alt="Video ${start_ind}-dm">
-                    </div>
-                    <div class="column">
-                        <div class="column-text">KLING AI</div>
-                        <img src="comp_tools/${getPaddedIndex(start_ind)}-kl.gif" class="large-image" alt="Video ${start_ind}-kl">
-                    </div>
-                    <div class="column">
-                        <div class="column-text">FLASH</div>
-                        <img src="comp_tools/${getPaddedIndex(start_ind)}-1.gif" class="large-image" alt="Video ${start_ind}-1">
-                    </div>
-                    <div class="column">
-                        <div class="column-text">Real Video</div>
-                        <img src="comp_tools/${getPaddedIndex(start_ind)}-gt.gif" class="large-image" alt="Video ${start_ind}-gt">
-                    </div>
-                </div>
-                <br><br><br>
-            `;
-
-            // Append generated content to the container
-            container.innerHTML += actionTemplate;
-        }
-
-        // Create multiple image containers with different starting indices
-        createImageContainer('An athlete is performing a balance beam jump.', 0);
-        createImageContainer('A person is shooting a soccer ball.', 1);
-        createImageContainer('A person is performing a shoot dance.', 2);
-        createImageContainer('A person is pouring water over their head as part of the ALS Ice Bucket Challenge.', 3);
-    </script>
+                    <br><br><br>
+                `;
+    
+                // Append generated content to the container
+                container.innerHTML += actionTemplate;
+            }
+    
+            // Create multiple image containers with different starting indices
+            createImageContainer('An athlete is performing a balance beam jump.', 0);
+            createImageContainer('A person is shooting a soccer ball.', 1);
+            createImageContainer('A person is performing a shoot dance.', 2);
+            createImageContainer('A person is pouring water over their head as part of the ALS Ice Bucket Challenge.', 3);
+        </script>
     </section>
     <br>
 
     <h2>Comparison with baselines</h2>
     <section id="section2">
-    <div class="container" id="image-gallery-2"></div>
-    <script>
-        // Function to create image containers dynamically
-        function createImageContainer(caption, start_ind) {
-            const container = document.getElementById('image-gallery-2');
-
-            const getPaddedIndex = (index) => String(index).padStart(3, '0');
-
-            const actionTemplate = `
-                <h3>Action Description: ${caption}</h3>
-                <br>
-                <div class="image-container">
-                    <div class="column">
-                        <div class="column-text">Reference Images</div>
-                        <img src="comparisons/${getPaddedIndex(start_ind)}.jpg" alt="Image ${start_ind}">
-                        <img src="comparisons/${getPaddedIndex(start_ind+1)}.jpg" alt="Image ${start_ind+1}">
-                        <img src="comparisons/${getPaddedIndex(start_ind+2)}.jpg" alt="Image ${start_ind+2}">
-                        <img src="comparisons/${getPaddedIndex(start_ind+3)}.jpg" alt="Image ${start_ind+3}">
+        <div class="container" id="image-gallery-2"></div>
+        <script>
+            // Function to create image containers dynamically
+            function createImageContainer(caption, start_ind) {
+                const container = document.getElementById('image-gallery-2');
+    
+                const getPaddedIndex = (index) => String(index).padStart(3, '0');
+    
+                const actionTemplate = `
+                    <h3>Action Description: ${caption}</h3>
+                    <br>
+                    <div class="image-container">
+                        <div class="column">
+                            <div class="column-text">Ref. Img</div>
+                            <img src="comparisons/${getPaddedIndex(start_ind)}.jpg" alt="Image ${start_ind}">
+                            <img src="comparisons/${getPaddedIndex(start_ind+1)}.jpg" alt="Image ${start_ind+1}">
+                            <img src="comparisons/${getPaddedIndex(start_ind+2)}.jpg" alt="Image ${start_ind+2}">
+                            <img src="comparisons/${getPaddedIndex(start_ind+3)}.jpg" alt="Image ${start_ind+3}">
+                        </div>
+                        <div class="column">
+                            <div class="column-text">FLASH</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind)}-g.mp4" alt="Video ${start_ind}-g">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+1)}-g.mp4" alt="Video ${start_ind+1}-g">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+2)}-g.mp4" alt="Video ${start_ind+2}-g">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+3)}-g.mp4" alt="Video ${start_ind+3}-g">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">LAMP</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind)}-f.mp4" alt="Video ${start_ind}-f">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+1)}-f.mp4" alt="Video ${start_ind+1}-f">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+2)}-f.mp4" alt="Video ${start_ind+2}-f">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+3)}-f.mp4" alt="Video ${start_ind+3}-f">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">DynamiCrafter</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind)}-d.mp4" alt="Video ${start_ind}-d">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+1)}-d.mp4" alt="Video ${start_ind+1}-d">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+2)}-d.mp4" alt="Video ${start_ind+2}-d">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+3)}-d.mp4" alt="Video ${start_ind+3}-d">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">MotionDirector</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind)}-h.mp4" alt="Video ${start_ind}-f">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+1)}-h.mp4" alt="Video ${start_ind+1}-f">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+2)}-h.mp4" alt="Video ${start_ind+2}-f">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+3)}-h.mp4" alt="Video ${start_ind+3}-f">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">DreamVideo</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind)}-e.mp4" alt="Video ${start_ind}-e">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+1)}-e.mp4" alt="Video ${start_ind+1}-e">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+2)}-e.mp4" alt="Video ${start_ind+2}-e">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+3)}-e.mp4" alt="Video ${start_ind+3}-e">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">PIA</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind)}-b.mp4" alt="Video ${start_ind}-b">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+1)}-b.mp4" alt="Video ${start_ind+1}-b">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+2)}-b.mp4" alt="Video ${start_ind+2}-b">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+3)}-b.mp4" alt="Video ${start_ind+3}-b">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">SparseCtrl</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind)}-c.mp4" alt="Video ${start_ind}-c">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+1)}-c.mp4" alt="Video ${start_ind+1}-c">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+2)}-c.mp4" alt="Video ${start_ind+2}-c">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+3)}-c.mp4" alt="Video ${start_ind+3}-c">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">TI2V-Zero</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind)}-a.mp4" alt="Video ${start_ind}-a">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+1)}-a.mp4" alt="Video ${start_ind+1}-a">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+2)}-a.mp4" alt="Video ${start_ind+2}-a">
+                            </video>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="comparisons/${getPaddedIndex(start_ind+3)}-a.mp4" alt="Video ${start_ind+3}-a">
+                            </video>
+                        </div>
                     </div>
-                    <div class="column">
-                        <div class="column-text">FLASH</div>
-                        <img src="comparisons/${getPaddedIndex(start_ind)}-g.gif" alt="Video ${start_ind}-g">
-                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-g.gif" alt="Video ${start_ind+1}-g">
-                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-g.gif" alt="Video ${start_ind+2}-g">
-                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-g.gif" alt="Video ${start_ind+3}-g">
-                    </div>
-                    <div class="column">
-                        <div class="column-text">LAMP</div>
-                        <img src="comparisons/${getPaddedIndex(start_ind)}-f.gif" alt="Video ${start_ind}-f">
-                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-f.gif" alt="Video ${start_ind+1}-f">
-                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-f.gif" alt="Video ${start_ind+2}-f">
-                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-f.gif" alt="Video ${start_ind+3}-f">
-                    </div>
-                    <div class="column">
-                        <div class="column-text">DynamiCrafter</div>
-                        <img src="comparisons/${getPaddedIndex(start_ind)}-d.gif" alt="Video ${start_ind}-d">
-                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-d.gif" alt="Video ${start_ind+1}-d">
-                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-d.gif" alt="Video ${start_ind+2}-d">
-                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-d.gif" alt="Video ${start_ind+3}-d">
-                    </div>
-                    <div class="column">
-                        <div class="column-text">DreamVideo</div>
-                        <img src="comparisons/${getPaddedIndex(start_ind)}-e.gif" alt="Video ${start_ind}-e">
-                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-e.gif" alt="Video ${start_ind+1}-e">
-                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-e.gif" alt="Video ${start_ind+2}-e">
-                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-e.gif" alt="Video ${start_ind+3}-e">
-                    </div>
-                    <div class="column">
-                        <div class="column-text">PIA</div>
-                        <img src="comparisons/${getPaddedIndex(start_ind)}-b.gif" alt="Video ${start_ind}-b">
-                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-b.gif" alt="Video ${start_ind+1}-b">
-                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-b.gif" alt="Video ${start_ind+2}-b">
-                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-b.gif" alt="Video ${start_ind+3}-b">
-                    </div>
-                    <div class="column">
-                        <div class="column-text">SparseCtrl</div>
-                        <img src="comparisons/${getPaddedIndex(start_ind)}-c.gif" alt="Video ${start_ind}-c">
-                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-c.gif" alt="Video ${start_ind+1}-c">
-                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-c.gif" alt="Video ${start_ind+2}-c">
-                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-c.gif" alt="Video ${start_ind+3}-c">
-                    </div>
-                    <div class="column">
-                        <div class="column-text">TI2V-Zero</div>
-                        <img src="comparisons/${getPaddedIndex(start_ind)}-a.gif" alt="Video ${start_ind}-a">
-                        <img src="comparisons/${getPaddedIndex(start_ind+1)}-a.gif" alt="Video ${start_ind+1}-a">
-                        <img src="comparisons/${getPaddedIndex(start_ind+2)}-a.gif" alt="Video ${start_ind+2}-a">
-                        <img src="comparisons/${getPaddedIndex(start_ind+3)}-a.gif" alt="Video ${start_ind+3}-a">
-                    </div>
-                </div>
-                <br><br><br>
-            `;
-
-            // Append generated content to the container
-            container.innerHTML += actionTemplate;
-        }
-
-        // Create multiple image containers with different starting indices
-        createImageContainer('A person is performing a pushup.', 0);
-        createImageContainer('A person is shooting a soccer ball.', 4);
-        createImageContainer('A person is running in place.', 8);
-        createImageContainer('A person is performing an arm wave.', 12);
-        createImageContainer('A person is doing the shoot dance.', 16);
-        createImageContainer('Two people are hugging.', 20);
-        createImageContainer('A person is drinking from a cup.', 24);
-        createImageContainer('A person runs in a sprint.', 28);
-        createImageContainer('A person is pouring water over their head as part of the ALS Ice Bucket Challenge.', 32);
-        createImageContainer('An athlete is performing a balance beam jump.', 36);
-        createImageContainer('A person is paddling quickly in a canoe.', 40);
-        createImageContainer('A person is chopping wood.', 44);
-    </script>
+                    <br><br><br>
+                `;
+    
+                // Append generated content to the container
+                container.innerHTML += actionTemplate;
+            }
+    
+            // Create multiple image containers with different starting indices
+            createImageContainer('A person is performing a pushup.', 0);
+            createImageContainer('A person is shooting a soccer ball.', 4);
+            createImageContainer('A person is running in place.', 8);
+            createImageContainer('A person is performing an arm wave.', 12);
+            createImageContainer('A person is doing the shoot dance.', 16);
+            createImageContainer('Two people are hugging.', 20);
+            createImageContainer('A person is drinking from a cup.', 24);
+            createImageContainer('A person runs in a sprint.', 28);
+            createImageContainer('A person is pouring water over their head as part of the ALS Ice Bucket Challenge.', 32);
+            createImageContainer('An athlete is performing a balance beam jump.', 36);
+            createImageContainer('A person is paddling quickly in a canoe.', 40);
+            createImageContainer('A person is chopping wood.', 44);
+        </script>
     </section>
     <br>
 
-    <h2>Animating Internet Images Using FLASH</h2>
+    <h2>Animating Internet Images</h2>
     <section id="section3">
-    <div class="container" id="internet-image-gallery">
-        <!-- Row with Three Groups -->
-        <div class="gallery-row">
-            <div class="group">
-                <h3>Action Description: A person is performing a pushup.</h3>
-                <div class="image-row">
-                    <img src="internet_images/0.jpg" alt="Original Image 0">
-                    <img src="internet_images/0.gif" alt="Animation 0">
-                </div>
-            </div>
-            <div class="group">
-                <h3>Action Description: A person is performing an arm wave.</h3>
-                <div class="image-row">
-                    <img src="internet_images/1.jpg" alt="Original Image 1">
-                    <img src="internet_images/1.gif" alt="Animation 1">
-                </div>
-            </div>
-            <div class="group">
-                <h3>Action Description: A person is doing the shoot dance.</h3>
-                <div class="image-row">
-                    <img src="internet_images/2.jpg" alt="Original Image 2">
-                    <img src="internet_images/2.gif" alt="Animation 2">
-                </div>
-            </div>
-        </div>
-        <br>
-
-        <!-- Row with Three Groups -->
-        <div class="gallery-row">
-            <div class="group">
-                <h3>Action Description: A person runs in a sprint.</h3>
-                <div class="image-row">
-                    <img src="internet_images/3.jpg" alt="Original Image 3">
-                    <img src="internet_images/3.gif" alt="Animation 3">
-                </div>
-            </div>
-            <div class="group">
-                <h3>Action Description: A person is doing the shoot dance.</h3>
-                <div class="image-row">
-                    <img src="internet_images/4.jpg" alt="Original Image 4">
-                    <img src="internet_images/4.gif" alt="Animation 4">
-                </div>
-            </div>
-            <div class="group">
-                <h3>Action Description: An astronaut is performing an arm wave.</h3>
-                <div class="image-row">
-                    <img src="internet_images/5.jpg" alt="Original Image 5">
-                    <img src="internet_images/5.gif" alt="Animation 5">
-                </div>
-            </div>
-        </div>
-        <br>
-
-        <!-- Row with Three Groups -->
-        <div class="gallery-row">
-            <div class="group">
-                <h3>Action Description: An astronaut is running in place.</h3>
-                <div class="image-row">
-                    <img src="internet_images/6.jpg" alt="Original Image 6">
-                    <img src="internet_images/6.gif" alt="Animation 6">
-                </div>
-            </div>
-            <div class="group">
-                <h3>Action Description: An astronaut is drinking from a cup.</h3>
-                <div class="image-row">
-                    <img src="internet_images/7.jpg" alt="Original Image 7">
-                    <img src="internet_images/7.gif" alt="Animation 7">
-                </div>
-            </div>
-            <div class="group">
-                <h3>Action Description: A person is shooting a soccer ball.</h3>
-                <div class="image-row">
-                    <img src="internet_images/8.jpg" alt="Original Image 8">
-                    <img src="internet_images/8.gif" alt="Animation 8">
-                </div>
-            </div>
-        </div>
-        <br>
-
-        <!-- Row with Three Groups -->
-        <div class="gallery-row">
-            <div class="group">
-                <h3>Action Description: A humanoid alien is performing a pushup.</h3>
-                <div class="image-row">
-                    <img src="internet_images/9.jpg" alt="Original Image 9">
-                    <img src="internet_images/9.gif" alt="Animation 9">
-                </div>
-            </div>
-            <div class="group">
-                <h3>Action Description: A humanoid alien is pouring water over their head.</h3>
-                <div class="image-row">
-                    <img src="internet_images/10.jpg" alt="Original Image 10">
-                    <img src="internet_images/10.gif" alt="Animation 10">
-                </div>
-            </div>
-            <div class="group">
-                <h3>Action Description: Two humanoid aliens are hugging.</h3>
-                <div class="image-row">
-                    <img src="internet_images/11.jpg" alt="Original Image 11">
-                    <img src="internet_images/11.gif" alt="Animation 11">
-                </div>
-            </div>
-        </div>
-        <br>
-    </div>
+        <div class="container" id="image-gallery-2"></div>
+        <script>
+            // Function to create image containers dynamically
+            function createImageContainer(caption, start_ind) {
+                const container = document.getElementById('image-gallery-2');
+    
+                const actionTemplate = `
+                    <h3>Action Description: ${caption}</h3>
+                    <br>
+                    <div class="image-container">
+                        <div class="column">
+                            <div class="column-text">Ref. Img</div>
+                            <img src="internet_images/${start_ind}.jpg" alt="Image ${start_ind}">
+                        </div>
+                        <div class="column">
+                            <div class="column-text">FLASH</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="internet_images/${start_ind}-g.mp4" alt="Video ${start_ind}-g">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">LAMP</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="internet_images/${start_ind}-f.mp4" alt="Video ${start_ind}-f">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">DynamiCrafter</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="internet_images/${start_ind}-d.mp4" alt="Video ${start_ind}-d">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">MotionDirector</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="internet_images/${start_ind}-h.mp4" alt="Video ${start_ind}-e">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">DreamVideo</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="internet_images/${start_ind}-e.mp4" alt="Video ${start_ind}-e">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">PIA</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="internet_images/${start_ind}-b.mp4" alt="Video ${start_ind}-b">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">SparseCtrl</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="internet_images/${start_ind}-c.mp4" alt="Video ${start_ind}-c">
+                            </video>
+                        </div>
+                        <div class="column">
+                            <div class="column-text">TI2V-Zero</div>
+                            <video class="small-image" autoplay loop muted preload="none">
+                                <source src="internet_images/${start_ind}-a.mp4" alt="Video ${start_ind}-a">
+                            </video>
+                        </div>
+                    </div>
+                    <br><br><br><br>
+                `;
+    
+                // Append generated content to the container
+                container.innerHTML += actionTemplate;
+            }
+    
+            // Create multiple image containers with different starting indices
+            createImageContainer('A person is performing a pushup.', 0);
+            createImageContainer('A person is performing an arm wave.', 1);
+            createImageContainer('A person is doing the shoot dance.', 2);
+            createImageContainer('A person runs in a sprint.', 3);
+            createImageContainer('A person is doing the shoot dance.', 4);
+            createImageContainer('An astronaut is performing an arm wave.', 5);
+            createImageContainer('An astronaut is running in place.', 6);
+            createImageContainer('An astronaut is drinking from a cup.', 7);
+            createImageContainer('A person is shooting a soccer ball.', 8);
+            createImageContainer('A humanoid alien is performing a pushup.', 9);
+            createImageContainer('A humanoid alien is pouring water over their head as part of the ALS Ice Bucket Challenge.', 10);
+            createImageContainer('Two humanoid aliens are hugging.', 11);
+        </script>
     </section>
 </body>
 <br>
