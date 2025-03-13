@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +21,7 @@
             font-size: 2.5em;
             justify-content: center;
             color: #333;
+            text-align: center;
         }
         h2 {
             margin: 30px 0;
@@ -72,11 +74,84 @@
             height: 180px;
             object-fit: cover;
         }
+        .authors {
+            font-size: 18px;
+        }
+        .authors a {
+            color: blue;
+            text-decoration: none;
+        }
+        .affiliations {
+            font-size: 18px;
+            margin-top: 5px;
+        }
+        .buttons {
+            margin-top: 15px;
+        }
+        .button {
+            display: inline-block;
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin: 5px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .abstract-container {
+            width: 70%;
+            background-color: rgb(230, 230, 230);
+            padding: 20px;
+            margin: 0 auto;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .bibtex-container {
+            width: 70%;
+            padding: 20px;
+            margin: 0 auto;
+            font-family: monospace;
+        }
+        .bibtex-title {
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .bibtex-content {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
+
 <body>
-    <h1>Animating Images to Portray Human Actions</h1>
-    <h2>Index</h2>
+    <h1>Learning to Animate Images from A Few Videos to Portray Delicate Human Actions</h1>
+    <p class="authors">
+        <a href="https://lihaoxin05.github.io/">Haoxin Li</a><sup>1,*</sup>, 
+        <a href="https://yingchen001.github.io/">Yingchen Yu</a><sup>2</sup>, 
+        <a href="https://jerrywu-code.github.io/">Qilong Wu</a><sup>3</sup>, 
+        <a href="https://personal.ntu.edu.sg/hanwangzhang/">Hanwang Zhang</a><sup>1</sup>,
+        <a href="https://songbai.site/">Song Bai</a><sup>2</sup>,
+        <a href="https://www.boyangli.org/">Boyang Li</a><sup>1</sup>
+    </p>
+    <p class="affiliations">Nanyang Technological University<sup>1</sup> &nbsp;&nbsp; ByteDance<sup>2</sup> &nbsp;&nbsp; National University of Singapore<sup>3</sup></p>
+    <p style="font-size: 14px; margin-top: 10px;">*Part of the work is done during an internship at ByteDance.</p>
+    <div class="buttons">
+        <a href="https://arxiv.org/abs/2503.00276" class="button">arXiv</a>
+    </div>
+    <br><br>
+
+    <h2>Abstract</h2>
+    <div class="abstract-container">
+        <p>
+            Despite recent progress, video generative models still struggle to animate static images into videos that portray delicate human actions, particularly when handling uncommon or novel actions whose training data are limited. In this paper, we explore the task of learning to animate images to portray delicate human actions using a small number of videos -- 16 or fewer -- which is highly valuable for real-world applications like video and movie production. Learning generalizable motion patterns that smoothly transition from user-provided reference images in a few-shot setting is highly challenging. We propose FLASH (Few-shot Learning to Animate and Steer Humans), which learns generalizable motion patterns by forcing the model to reconstruct a video using the motion features and cross-frame correspondences of another video with the same motion but different appearance. This encourages transferable motion learning and mitigates overfitting to limited training data. Additionally, FLASH extends the decoder with additional layers to propagate details from the reference image to generated frames, improving transition smoothness. Human judges overwhelmingly favor FLASH, with 65.78% of 488 responses prefer FLASH over baselines.
+        </p>
+    </div>
+    <br><br>
+
+    <h2>Results</h2>
+    <div id="index">
     <nav>
         <ul>
             <li><a href="#section1">Comparison of Dream Machine, KLING AI, Wanx AI, and FLASH</a></li>
@@ -84,7 +159,7 @@
             <li><a href="#section3">Animating Internet Images</a></li>
         </ul>
     </nav>
-    <br><br><br>
+    </div>
 
     <h2>Comparison of Dream Machine, KLING, and FLASH</h2>
     <section id="section1">
@@ -143,6 +218,7 @@
             createImageContainer('A person is performing a shoot dance.', 2);
             createImageContainer('A person is pouring water over their head as part of the ALS Ice Bucket Challenge.', 3);
         </script>
+    <p><a href="#index">Back to Index</a></p>
     </section>
     <br>
 
@@ -277,6 +353,7 @@
             createImageContainer('A person is paddling quickly in a canoe.', 40);
             createImageContainer('A person is chopping wood.', 44);
         </script>
+    <p><a href="#index">Back to Index</a></p>
     </section>
     <br>
 
@@ -358,7 +435,26 @@
             createImageContainer('A humanoid alien is pouring water over their head as part of the ALS Ice Bucket Challenge.', 10);
             createImageContainer('Two humanoid aliens are hugging.', 11);
         </script>
+    <p><a href="#index">Back to Index</a></p>
     </section>
+    <br><br>
+
+<!-- BibTeX Section -->
+<div class="bibtex-container">
+    <div class="bibtex-title">BibTeX</div>
+        <div class="bibtex-content">
+        <pre>
+@article{li2025learning,
+title={Learning to Animate Images from A Few Videos to Portray Delicate Human Actions},
+author={Li, Haoxin and Yu, Yingchen and Wu, Qilong and Zhang, Hanwang and Li, Boyang and Bai, Song},
+journal={arXiv preprint arXiv:2503.00276},
+year={2025}
+}
+        </pre>
+        </div>
+    </div>
+</div>
+<br><br>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -386,5 +482,3 @@ document.addEventListener("DOMContentLoaded", function () {
 </body>
 <br>
 </html>
-
-
