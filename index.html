@@ -42,17 +42,17 @@
         .image-container img {
             width: 120px;
             height: 120px;
-            object-fit: cover;
+            object-fit: contain;
         }
         .large-image {
             width: 150px !important;
             height: 150px !important;
-            object-fit: cover;
+            object-fit: contain;
         }
         .small-image {
             width: 120px !important;
             height: 120px !important;
-            object-fit: cover;
+            object-fit: contain;
         }
         .column {
             display: flex;
@@ -72,7 +72,7 @@
         .group img {
             width: 180px;
             height: 180px;
-            object-fit: cover;
+            object-fit: contain;
         }
         .authors {
             font-size: 18px;
@@ -472,7 +472,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 video.pause();
             }
         });
-    }, { threshold: 0.9 });
+    }, { threshold: 0.95 });
 
     videos.forEach(video => observer.observe(video));
 });
