@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 30px 0;
+            font-size: 2.5em;
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            margin: 20px 0 10px 0;
+            font-size: 1.5em;
+            color: #444;
+            text-align: center;
+            width: 100%;
+        }
+
+        h3 {
+            margin: 10px 0;
+            font-size: 1.2em;
+            color: #555;
+            text-align: left;
+            width: 100%;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 10px;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .media-grid video,
+        .media-grid img {
+            width: 100%;
+            height: 120px;
+            object-fit: fill;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .section {
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Training Videos and Testing Images</h1>
+    <div id="gallery"></div>
+
+    <script>
+        const selectedCategories = ["basketball_hookshot", "canoeing_sprint", "shoot_dance", "face_slapping"];
+        const categoryTitles = {
+            "shoot_dance": "A person is doing the shoot dance",
+            "face_slapping": "A person is slapping another person's face",
+            "canoeing_sprint": "A person is paddling a canoe at full speed",
+            "basketball_hookshot": "A person is releasing the basketball in a hook shot",
+        };
+
+        const allMediaData = {
+            "face_slapping": {
+                "videos": [
+                    "face_slapping/face_slapping_012.mp4",
+                    "face_slapping/face_slapping_007.mp4",
+                    "face_slapping/face_slapping_011.mp4",
+                    "face_slapping/face_slapping_006.mp4",
+                    "face_slapping/face_slapping_002.mp4",
+                    "face_slapping/face_slapping_000.mp4",
+                    "face_slapping/face_slapping_004.mp4",
+                    "face_slapping/face_slapping_005.mp4",
+                    "face_slapping/face_slapping_015.mp4",
+                    "face_slapping/face_slapping_003.mp4",
+                    "face_slapping/face_slapping_001.mp4"
+                ],
+                "images": [
+                    "face_slapping/face_slapping_018.jpg",
+                    "face_slapping/face_slapping_019.jpg",
+                    "face_slapping/face_slapping_016.jpg",
+                    "face_slapping/face_slapping_017.jpg"
+                ]
+            },
+            "basketball_hookshot": {
+                "videos": [
+                    "basketball_hookshot/basketball_hookshot_015.mp4",
+                    "basketball_hookshot/basketball_hookshot_007.mp4",
+                    "basketball_hookshot/basketball_hookshot_006.mp4",
+                    "basketball_hookshot/basketball_hookshot_008.mp4",
+                    "basketball_hookshot/basketball_hookshot_002.mp4",
+                    "basketball_hookshot/basketball_hookshot_009.mp4",
+                    "basketball_hookshot/basketball_hookshot_004.mp4",
+                    "basketball_hookshot/basketball_hookshot_013.mp4",
+                    "basketball_hookshot/basketball_hookshot_003.mp4",
+                    "basketball_hookshot/basketball_hookshot_011.mp4",
+                    "basketball_hookshot/basketball_hookshot_010.mp4",
+                    "basketball_hookshot/basketball_hookshot_012.mp4",
+                    "basketball_hookshot/basketball_hookshot_000.mp4",
+                    "basketball_hookshot/basketball_hookshot_005.mp4"
+                ],
+                "images": [
+                    "basketball_hookshot/basketball_hookshot_018.jpg",
+                    "basketball_hookshot/basketball_hookshot_016.jpg",
+                    "basketball_hookshot/basketball_hookshot_019.jpg",
+                    "basketball_hookshot/basketball_hookshot_017.jpg"
+                ]
+            },
+            "canoeing_sprint": {
+                "videos": [
+                    "canoeing_sprint/canoeing_sprint_013.mp4",
+                    "canoeing_sprint/canoeing_sprint_011.mp4",
+                    "canoeing_sprint/canoeing_sprint_004.mp4",
+                    "canoeing_sprint/canoeing_sprint_014.mp4",
+                    "canoeing_sprint/canoeing_sprint_003.mp4",
+                    "canoeing_sprint/canoeing_sprint_010.mp4",
+                    "canoeing_sprint/canoeing_sprint_012.mp4",
+                    "canoeing_sprint/canoeing_sprint_015.mp4",
+                    "canoeing_sprint/canoeing_sprint_002.mp4",
+                    "canoeing_sprint/canoeing_sprint_009.mp4",
+                    "canoeing_sprint/canoeing_sprint_008.mp4",
+                    "canoeing_sprint/canoeing_sprint_006.mp4",
+                    "canoeing_sprint/canoeing_sprint_001.mp4",
+                    "canoeing_sprint/canoeing_sprint_005.mp4",
+                    "canoeing_sprint/canoeing_sprint_000.mp4",
+                    "canoeing_sprint/canoeing_sprint_007.mp4"
+                ],
+                "images": [
+                    "canoeing_sprint/canoeing_sprint_018.jpg",
+                    "canoeing_sprint/canoeing_sprint_016.jpg",
+                    "canoeing_sprint/canoeing_sprint_017.jpg",
+                    "canoeing_sprint/canoeing_sprint_019.jpg"
+                ]
+            },
+            "shoot_dance": {
+                "videos": [
+                    "shoot_dance/shoot_dance_002.mp4",
+                    "shoot_dance/shoot_dance_003.mp4",
+                    "shoot_dance/shoot_dance_008.mp4",
+                    "shoot_dance/shoot_dance_006.mp4",
+                    "shoot_dance/shoot_dance_011.mp4",
+                    "shoot_dance/shoot_dance_014.mp4",
+                    "shoot_dance/shoot_dance_007.mp4",
+                    "shoot_dance/shoot_dance_001.mp4",
+                    "shoot_dance/shoot_dance_010.mp4",
+                    "shoot_dance/shoot_dance_013.mp4",
+                    "shoot_dance/shoot_dance_005.mp4",
+                    "shoot_dance/shoot_dance_012.mp4",
+                    "shoot_dance/shoot_dance_004.mp4",
+                    "shoot_dance/shoot_dance_009.mp4"
+                ],
+                "images": [
+                    "shoot_dance/shoot_dance_018.jpg",
+                    "shoot_dance/shoot_dance_016.jpg",
+                    "shoot_dance/shoot_dance_017.jpg",
+                    "shoot_dance/shoot_dance_019.jpg"
+                ]
+            }
+        };
+
+        let mediaData = {};
+        selectedCategories.forEach(cat => {
+            if (allMediaData[cat]) {
+                mediaData[cat] = allMediaData[cat];
+            }
+        });
+
+        renderGallery(mediaData);
+
+        function createMediaGrid(items, isVideo = false) {
+            const grid = document.createElement("div");
+            grid.className = "media-grid";
+
+            items.forEach(src => {
+                if (isVideo) {
+                    const video = document.createElement("video");
+                    video.setAttribute("data-src", src); 
+                    video.muted = true; 
+                    video.autoplay = true;
+                    video.playsInline = true;
+                    video.loop = true;
+                    grid.appendChild(video);
+                } else {
+                    const img = document.createElement("img");
+                    img.src = src;
+                    grid.appendChild(img);
+                }
+            });
+
+            return grid;
+        }
+
+        function renderGallery(mediaData) {
+            const gallery = document.getElementById("gallery");
+            gallery.innerHTML = "";
+
+            Object.keys(mediaData).forEach(category => {
+                const section = document.createElement("div");
+                section.className = "section";
+
+                const title = document.createElement("h2");
+                title.textContent = categoryTitles[category] || category;
+                section.appendChild(title);
+
+                if (mediaData[category].videos.length > 0) {
+                    const videoTitle = document.createElement("h3");
+                    videoTitle.textContent = "Training Videos";
+                    section.appendChild(videoTitle);
+                    section.appendChild(createMediaGrid(mediaData[category].videos, true));
+                }
+
+                if (mediaData[category].images.length > 0) {
+                    const imageTitle = document.createElement("h3");
+                    imageTitle.textContent = "Testing Images";
+                    section.appendChild(imageTitle);
+                    section.appendChild(createMediaGrid(mediaData[category].images, false));
+                }
+
+                gallery.appendChild(section);
+            });
+
+            const videos = document.querySelectorAll("video[data-src]");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    let video = entry.target;
+                    if (entry.isIntersecting) {
+                        if (video.dataset.src) {
+                            video.src = video.dataset.src;
+                            video.removeAttribute("data-src");
+                        }
+                        video.play();
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { threshold: 0.98 });
+
+            videos.forEach(video => observer.observe(video));
+        }
+    </script>
+</body>
+
+</html>

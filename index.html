@@ -4,480 +4,655 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generated Human Actions</title>
+    <title>Human Action Animation – FLASH</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background-color: #f0f0f0;
             margin: 0;
+            background-color: #f5f5f5;
         }
+
         h1 {
-            margin: 30px 0;
-            font-size: 2.5em;
-            justify-content: center;
+            margin-top: 40px;
+            font-size: 2.4em;
+            text-align: center;
+            color: #222;
+        }
+
+        h2 {
+            margin-top: 40px;
+            font-size: 1.6em;
             color: #333;
             text-align: center;
         }
-        h2 {
-            margin: 30px 0;
-            font-size: 1.5em;
-            justify-content: center;
-            color: #333;
-        }
+
         h3 {
-            text-align: left;
             width: 100%;
+            text-align: left;
+            max-width: 1200px;
+            margin: 20px auto 0;
         }
 
-        .image-container {
-            display: flex;
-            gap: 15px;
-            max-width: 1200px;
+        .authors, .affiliations {
+            text-align: center;
+            max-width: 900px;
+            margin: 10px auto;
+            font-size: 16px;
         }
-        .image-container img {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-        }
-        .large-image {
-            width: 150px !important;
-            height: 150px !important;
-            object-fit: contain;
-        }
-        .small-image {
-            width: 120px !important;
-            height: 120px !important;
-            object-fit: contain;
-        }
-        .column {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px !important; 
-        }
-        .column-text {
-            font-weight: bold;
-        }
-        .group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 400px;
-        }
-        .group img {
-            width: 180px;
-            height: 180px;
-            object-fit: contain;
-        }
-        .authors {
-            font-size: 18px;
-        }
-        .authors a {
-            color: blue;
-            text-decoration: none;
-        }
-        .affiliations {
-            font-size: 18px;
-            margin-top: 5px;
-        }
+
         .buttons {
+            text-align: center;
             margin-top: 15px;
         }
+
         .button {
             display: inline-block;
             background-color: black;
             color: white;
             padding: 10px 20px;
             border-radius: 20px;
+            text-decoration: none;
             margin: 5px;
+        }
+
+        .abstract-container {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            margin: 5px 0;
+        }
+
+        nav ul li a {
+            color: #0055aa;
             text-decoration: none;
             font-size: 16px;
         }
-        .abstract-container {
-            width: 70%;
-            background-color: rgb(230, 230, 230);
-            padding: 20px;
-            margin: 0 auto;
-            font-size: 16px;
-            line-height: 1.5;
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            max-width: 1200px;
+            margin: 15px auto;
+        }
+
+        img, video {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .column-text {
+            font-weight: bold;
+        }
+
+        table {
+            width: 1200px;
+            border-collapse: collapse;
+            margin: 20px auto;
+            font-size: 14px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 4px;
+        }
+
+        th {
+            background-color: #f0f0f0;
         }
         .bibtex-container {
-            width: 70%;
+            max-width: 900px;
+            margin: 40px auto;
             padding: 20px;
-            margin: 0 auto;
-            font-family: monospace;
+            border: 1px solid #ccc;
+            background: #fafafa;
+            border-radius: 10px;
         }
+
         .bibtex-title {
+            font-size: 20px;
             font-weight: bold;
-            font-size: 1.5em;
             margin-bottom: 10px;
         }
-        .bibtex-content {
-            background-color: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ccc;
+
+        .bibtex-content pre {
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 14px;
         }
     </style>
 </head>
 
 <body>
+
+    <!-- ========================================================= -->
+    <!-- Title + Authors + Abstract -->
+    <!-- ========================================================= -->
+
     <h1>Learning to Animate Images from A Few Videos to Portray Delicate Human Actions</h1>
+
     <p class="authors">
-        <a href="https://lihaoxin05.github.io/">Haoxin Li</a><sup>1,*</sup>, 
-        <a href="https://yingchen001.github.io/">Yingchen Yu</a><sup>2</sup>, 
-        <a href="https://jerrywu-code.github.io/">Qilong Wu</a><sup>3</sup>, 
-        <a href="https://personal.ntu.edu.sg/hanwangzhang/">Hanwang Zhang</a><sup>1</sup>,
-        <a href="https://songbai.site/">Song Bai</a><sup>2</sup>,
-        <a href="https://www.boyangli.org/">Boyang Li</a><sup>1</sup>
+        <a href="https://lihaoxin05.github.io">Haoxin Li</a><sup>1,*</sup>,
+        <a href="https://yingchen001.github.io">Yingchen Yu</a><sup>2</sup>,
+        <a href="https://jerrywu-code.github.io">Qilong Wu</a><sup>3</sup>,
+        <a href="https://mreallab.github.io/index.html">Hanwang Zhang</a><sup>1</sup>,
+        <a href="https://songbai.site">Song Bai</a><sup>2</sup>,
+        <a href="https://www.boyangli.org">Boyang Li</a><sup>1</sup>
     </p>
-    <p class="affiliations">Nanyang Technological University<sup>1</sup> &nbsp;&nbsp; ByteDance<sup>2</sup> &nbsp;&nbsp; National University of Singapore<sup>3</sup></p>
-    <p style="font-size: 14px; margin-top: 10px;">*Part of the work is done during an internship at ByteDance.</p>
+
+    <p class="affiliations">
+        Nanyang Technological University<sup>1</sup> &nbsp;&nbsp;
+        ByteDance<sup>2</sup> &nbsp;&nbsp;
+        National University of Singapore<sup>3</sup>
+    </p>
+
+    <p style="font-size: 14px; margin-top: 5px;">*Part of the work is done during an internship at ByteDance.</p>
+
     <div class="buttons">
         <a href="https://arxiv.org/abs/2503.00276" class="button">arXiv</a>
+        <a href="#bibtex" class="button">BibTeX</a>
     </div>
-    <br><br>
 
     <h2>Abstract</h2>
     <div class="abstract-container">
         <p>
-            Despite recent progress, video generative models still struggle to animate static images into videos that portray delicate human actions, particularly when handling uncommon or novel actions whose training data are limited. In this paper, we explore the task of learning to animate images to portray delicate human actions using a small number of videos -- 16 or fewer -- which is highly valuable for real-world applications like video and movie production. Learning generalizable motion patterns that smoothly transition from user-provided reference images in a few-shot setting is highly challenging. We propose FLASH (Few-shot Learning to Animate and Steer Humans), which learns generalizable motion patterns by forcing the model to reconstruct a video using the motion features and cross-frame correspondences of another video with the same motion but different appearance. This encourages transferable motion learning and mitigates overfitting to limited training data. Additionally, FLASH extends the decoder with additional layers to propagate details from the reference image to generated frames, improving transition smoothness. Human judges overwhelmingly favor FLASH, with 65.78% of 488 responses prefer FLASH over baselines.
+            Despite recent progress, video generative models still struggle to generate delicate human actions (e.g., gymnastics), particularly when they are required to start from a user-provided reference image. In this paper, we explore the task of learning to animate images into videos that portray delicate human actions using a small number of videos --- 16 or fewer --- which reduces the need for extensive data collection and enhances practicality for real-world applications. Learning generalizable motion patterns that smoothly transition from user-provided reference images in such a few-shot setting is highly challenging. We propose FLASH (Few-shot Learning to Animate and Steer Humans), which enhances generalization of motion by training the model to reconstruct a video using the motion features and cross-frame correspondences extracted from another video with the same motion but different appearance. This encourages the learning of transferable motion and mitigates overfitting to the appearance in limited training data. Additionally, FLASH extends the decoder with additional layers to propagate details from the reference image to generated frames, improving transition smoothness. Human judges significantly favor FLASH, with 65.78\% of 488 responses prefer FLASH over baselines.
         </p>
     </div>
-    <br><br>
+
+    <!-- ========================================================= -->
+    <!-- INDEX -->
+    <!-- ========================================================= -->
 
     <h2>Results</h2>
-    <div id="index">
-    <nav>
+    <nav id="index">
         <ul>
-            <li><a href="#section1">Comparison of Dream Machine, KLING AI, Wanx AI, and FLASH</a></li>
-            <li><a href="#section2">Comparison with baselines</a></li>
+            <li><a href="#section1">Comparison of Dream Machine, KLING AI, Wan, and FLASH</a></li>
+            <li><a href="#section2">Comparison with Baselines</a></li>
             <li><a href="#section3">Animating Internet Images</a></li>
+            <li><a href="#section4">Ablations</a></li>
+            <li><a href="#section5">Comparison to Wan on Additional 8 Actions</a></li>
         </ul>
     </nav>
-    </div>
 
-    <h2>Comparison of Dream Machine, KLING, and FLASH</h2>
+    <!-- ========================================================= -->
+    <!-- SECTION 1 (TOOLS COMPARISON) -->
+    <!-- ========================================================= -->
+
+    <h2>Comparison of Dream Machine, KLING, Wan, and FLASH</h2>
+
     <section id="section1">
-        <div class="container" id="image-gallery-1"></div>
+        <div id="image-gallery-1"></div>
+
         <script>
-            // Function to create image containers dynamically
-            function createImageContainer(caption, start_ind) {
-                const container = document.getElementById('image-gallery-1');
-    
-                const getPaddedIndex = (index) => String(index);
-    
-                const actionTemplate = `
+            function createImageContainer1(caption, start_ind) {
+                const container = document.getElementById("image-gallery-1");
+                const idx = String(start_ind);
+
+                container.innerHTML += `
                     <h3>Action Description: ${caption}</h3>
-                    <br>
                     <div class="image-container">
+
                         <div class="column">
-                            <div class="column-text">Reference Image</div>
-                            <img src="comp_tools/${getPaddedIndex(start_ind)}.jpg" class="large-image" alt="Image ${start_ind}">
+                            <div class="column-text">Ref. Img</div>
+                            <img src="comp_tools/${idx}.jpg"/>
                         </div>
+
                         <div class="column">
                             <div class="column-text">Dream Machine</div>
-                            <video class="large-image" autoplay loop muted preload="metadata" data-src="comp_tools/${getPaddedIndex(start_ind)}-dm.mp4">
-                            </video>
+                            <video data-src="comp_tools/${idx}-dm.mp4" autoplay loop muted></video>
                         </div>
+
                         <div class="column">
                             <div class="column-text">KLING AI</div>
-                            <video class="large-image" autoplay loop muted preload="metadata" data-src="comp_tools/${getPaddedIndex(start_ind)}-kl.mp4">
-                            </video>
+                            <video data-src="comp_tools/${idx}-kl.mp4" autoplay loop muted></video>
                         </div>
+
                         <div class="column">
-                            <div class="column-text">Wanx AI</div>
-                            <video class="large-image" autoplay loop muted preload="metadata" data-src="comp_tools/${getPaddedIndex(start_ind)}-wanx.mp4">
-                            </video>
+                            <div class="column-text">Wan</div>
+                            <video data-src="comp_tools/${idx}-wanx.mp4" autoplay loop muted></video>
                         </div>
+
                         <div class="column">
                             <div class="column-text">FLASH</div>
-                            <video class="large-image" autoplay loop muted preload="metadata" data-src="comp_tools/${getPaddedIndex(start_ind)}-1.mp4">
-                            </video>
+                            <video data-src="comp_tools/${idx}-1.mp4" autoplay loop muted></video>
                         </div>
+
                         <div class="column">
                             <div class="column-text">Real Video</div>
-                            <video class="large-image" autoplay loop muted preload="metadata" data-src="comp_tools/${getPaddedIndex(start_ind)}-gt.mp4">
-                            </video>
+                            <video data-src="comp_tools/${idx}-gt.mp4" autoplay loop muted></video>
                         </div>
-                    </div>
-                    <br><br><br>
-                `;
-    
-                // Append generated content to the container
-                container.innerHTML += actionTemplate;
-            }
-    
-            // Create multiple image containers with different starting indices
-            createImageContainer('An athlete is performing a balance beam jump.', 0);
-            createImageContainer('A person is shooting a soccer ball.', 1);
-            createImageContainer('A person is performing a shoot dance.', 2);
-            createImageContainer('A person is pouring water over their head as part of the ALS Ice Bucket Challenge.', 3);
-        </script>
-    <p><a href="#index">Back to Index</a></p>
-    </section>
-    <br>
 
-    <h2>Comparison with baselines</h2>
-    <section id="section2">
-        <div class="container" id="image-gallery-2"></div>
-        <script>
-            // Function to create image containers dynamically
-            function createImageContainer(caption, start_ind) {
-                const container = document.getElementById('image-gallery-2');
-    
-                const getPaddedIndex = (index) => String(index).padStart(3, '0');
-    
-                const actionTemplate = `
-                    <h3>Action Description: ${caption}</h3>
-                    <br>
-                    <div class="image-container">
-                        <div class="column">
-                            <div class="column-text">Ref. Img</div>
-                            <img src="comparisons/${getPaddedIndex(start_ind)}.jpg" alt="Image ${start_ind}">
-                            <img src="comparisons/${getPaddedIndex(start_ind+1)}.jpg" alt="Image ${start_ind+1}">
-                            <img src="comparisons/${getPaddedIndex(start_ind+2)}.jpg" alt="Image ${start_ind+2}">
-                            <img src="comparisons/${getPaddedIndex(start_ind+3)}.jpg" alt="Image ${start_ind+3}">
-                        </div>
-                        <div class="column">
-                            <div class="column-text">FLASH</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind)}-g.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+1)}-g.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+2)}-g.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+3)}-g.mp4">
-                            </video>
-                        </div>
-                        <div class="column">
-                            <div class="column-text">LAMP</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind)}-f.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+1)}-f.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+2)}-f.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+3)}-f.mp4">
-                            </video>
-                        </div>
-                        <div class="column">
-                            <div class="column-text">DynamiCrafter</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind)}-d.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+1)}-d.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+2)}-d.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+3)}-d.mp4">
-                            </video>
-                        </div>
-                        <div class="column">
-                            <div class="column-text">MotionDirector</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind)}-h.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+1)}-h.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+2)}-h.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+3)}-h.mp4">
-                            </video>
-                        </div>
-                        <div class="column">
-                            <div class="column-text">DreamVideo</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind)}-e.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+1)}-e.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+2)}-e.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+3)}-e.mp4">
-                            </video>
-                        </div>
-                        <div class="column">
-                            <div class="column-text">PIA</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind)}-b.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+1)}-b.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+2)}-b.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+3)}-b.mp4">
-                            </video>
-                        </div>
-                        <div class="column">
-                            <div class="column-text">SparseCtrl</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind)}-c.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+1)}-c.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+2)}-c.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+3)}-c.mp4">
-                            </video>
-                        </div>
-                        <div class="column">
-                            <div class="column-text">TI2V-Zero</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind)}-a.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+1)}-a.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+2)}-a.mp4">
-                            </video>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="comparisons/${getPaddedIndex(start_ind+3)}-a.mp4">
-                            </video>
-                        </div>
                     </div>
-                    <br><br><br>
                 `;
-    
-                // Append generated content to the container
-                container.innerHTML += actionTemplate;
             }
-    
-            // Create multiple image containers with different starting indices
-            createImageContainer('A person is performing a pushup.', 0);
-            createImageContainer('A person is shooting a soccer ball.', 4);
-            createImageContainer('A person is running in place.', 8);
-            createImageContainer('A person is performing an arm wave.', 12);
-            createImageContainer('A person is doing the shoot dance.', 16);
-            createImageContainer('Two people are hugging.', 20);
-            createImageContainer('A person is drinking from a cup.', 24);
-            createImageContainer('A person runs in a sprint.', 28);
-            createImageContainer('A person is pouring water over their head as part of the ALS Ice Bucket Challenge.', 32);
-            createImageContainer('An athlete is performing a balance beam jump.', 36);
-            createImageContainer('A person is paddling quickly in a canoe.', 40);
-            createImageContainer('A person is chopping wood.', 44);
+
+            createImageContainer1('An athlete is performing a balance beam jump.', 0);
+            createImageContainer1('A person is shooting a soccer ball.', 1);
+            createImageContainer1('A person is performing a shoot dance.', 2);
+            createImageContainer1('A person is pouring water over their head (ALS Ice Bucket Challenge).', 3);
         </script>
-    <p><a href="#index">Back to Index</a></p>
+
+        <p><a href="#index">Back to Index</a></p>
     </section>
-    <br>
+
+    <!-- ========================================================= -->
+    <!-- SECTION 2 (BASELINE COMPARISON) -->
+    <!-- ========================================================= -->
+
+    <h2>Comparison with Baselines</h2>
+
+    <section id="section2">
+        <div id="image-gallery-2"></div>
+
+        <script>
+            function createImageContainer2(caption, start_ind) {
+                const container = document.getElementById('image-gallery-2');
+                const idx = i => String(i).padStart(3, '0');
+
+                container.innerHTML += `
+                <h3>Action Description: ${caption}</h3>
+
+                <div class="image-container">
+
+                    <div class="column">
+                        <div class="column-text">Ref. Img</div>
+                        <img src="comparisons/${idx(start_ind)}.jpg">
+                        <img src="comparisons/${idx(start_ind + 1)}.jpg">
+                        <img src="comparisons/${idx(start_ind + 2)}.jpg">
+                        <img src="comparisons/${idx(start_ind + 3)}.jpg">
+                    </div>
+
+                    <div class="column">
+                        <div class="column-text">FLASH</div>
+                        <video data-src="comparisons/${idx(start_ind)}-g.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+1)}-g.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+2)}-g.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+3)}-g.mp4" autoplay loop muted></video>
+                    </div>
+
+                    <div class="column">
+                        <div class="column-text">LAMP</div>
+                        <video data-src="comparisons/${idx(start_ind)}-f.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+1)}-f.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+2)}-f.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+3)}-f.mp4" autoplay loop muted></video>
+                    </div>
+
+                    <div class="column">
+                        <div class="column-text">DynamiCrafter</div>
+                        <video data-src="comparisons/${idx(start_ind)}-d.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+1)}-d.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+2)}-d.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+3)}-d.mp4" autoplay loop muted></video>
+                    </div>
+
+                    <div class="column">
+                        <div class="column-text">MotionDirector</div>
+                        <video data-src="comparisons/${idx(start_ind)}-h.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+1)}-h.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+2)}-h.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+3)}-h.mp4" autoplay loop muted></video>
+                    </div>
+
+                    <div class="column">
+                        <div class="column-text">DreamVideo</div>
+                        <video data-src="comparisons/${idx(start_ind)}-e.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+1)}-e.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+2)}-e.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+3)}-e.mp4" autoplay loop muted></video>
+                    </div>
+
+                    <div class="column">
+                        <div class="column-text">PIA</div>
+                        <video data-src="comparisons/${idx(start_ind)}-b.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+1)}-b.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+2)}-b.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+3)}-b.mp4" autoplay loop muted></video>
+                    </div>
+
+                    <div class="column">
+                        <div class="column-text">SparseCtrl</div>
+                        <video data-src="comparisons/${idx(start_ind)}-c.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+1)}-c.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+2)}-c.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+3)}-c.mp4" autoplay loop muted></video>
+                    </div>
+
+                    <div class="column">
+                        <div class="column-text">TI2V-Zero</div>
+                        <video data-src="comparisons/${idx(start_ind)}-a.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+1)}-a.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+2)}-a.mp4" autoplay loop muted></video>
+                        <video data-src="comparisons/${idx(start_ind+3)}-a.mp4" autoplay loop muted></video>
+                    </div>
+
+                </div>
+            `;
+            }
+
+            createImageContainer2("A person is performing a pushup.", 0);
+            createImageContainer2("A person is shooting a soccer ball.", 4);
+            createImageContainer2("A person is running in place.", 8);
+            createImageContainer2("A person is performing an arm wave.", 12);
+            createImageContainer2("A person is doing the shoot dance.", 16);
+            createImageContainer2("Two people are hugging.", 20);
+            createImageContainer2("A person is drinking from a cup.", 24);
+            createImageContainer2("A person runs in a sprint.", 28);
+            createImageContainer2("ALS Ice Bucket Challenge.", 32);
+            createImageContainer2("A balance beam jump.", 36);
+            createImageContainer2("A person is paddling quickly in a canoe.", 40);
+            createImageContainer2("A person is chopping wood.", 44);
+        </script>
+
+        <p><a href="#index">Back to Index</a></p>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- SECTION 3 (INTERNET IMAGES) -->
+    <!-- ========================================================= -->
 
     <h2>Animating Internet Images</h2>
+
     <section id="section3">
-        <div class="container" id="image-gallery-3"></div>
+
+        <div id="image-gallery-3"></div>
+
         <script>
-            // Function to create image containers dynamically
-            function createImageContainer(caption, start_ind) {
+            function createImageContainer3(caption, id) {
                 const container = document.getElementById('image-gallery-3');
-    
-                const actionTemplate = `
+
+                container.innerHTML += `
                     <h3>Action Description: ${caption}</h3>
-                    <br>
                     <div class="image-container">
+
                         <div class="column">
                             <div class="column-text">Ref. Img</div>
-                            <img src="internet_images/${start_ind}.jpg" alt="Image ${start_ind}">
+                            <img src="internet_images/${id}.jpg">
                         </div>
+
                         <div class="column">
                             <div class="column-text">FLASH</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="internet_images/${start_ind}-g.mp4">
-                            </video>
+                            <video data-src="internet_images/${id}-g.mp4" autoplay muted loop></video>
                         </div>
+
                         <div class="column">
                             <div class="column-text">LAMP</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="internet_images/${start_ind}-f.mp4">
-                            </video>
+                            <video data-src="internet_images/${id}-f.mp4" autoplay muted loop></video>
                         </div>
+
                         <div class="column">
                             <div class="column-text">DynamiCrafter</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="internet_images/${start_ind}-d.mp4">
-                            </video>
+                            <video data-src="internet_images/${id}-d.mp4" autoplay muted loop></video>
                         </div>
+
                         <div class="column">
                             <div class="column-text">MotionDirector</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="internet_images/${start_ind}-h.mp4">
-                            </video>
+                            <video data-src="internet_images/${id}-h.mp4" autoplay muted loop></video>
                         </div>
+
                         <div class="column">
                             <div class="column-text">DreamVideo</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="internet_images/${start_ind}-e.mp4">
-                            </video>
+                            <video data-src="internet_images/${id}-e.mp4" autoplay muted loop></video>
                         </div>
+
                         <div class="column">
                             <div class="column-text">PIA</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="internet_images/${start_ind}-b.mp4">
-                            </video>
+                            <video data-src="internet_images/${id}-b.mp4" autoplay muted loop></video>
                         </div>
+
                         <div class="column">
                             <div class="column-text">SparseCtrl</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="internet_images/${start_ind}-c.mp4">
-                            </video>
+                            <video data-src="internet_images/${id}-c.mp4" autoplay muted loop></video>
                         </div>
+
                         <div class="column">
                             <div class="column-text">TI2V-Zero</div>
-                            <video class="small-image" autoplay loop muted preload="metadata" data-src="internet_images/${start_ind}-a.mp4">
-                            </video>
+                            <video data-src="internet_images/${id}-a.mp4" autoplay muted loop></video>
                         </div>
+
                     </div>
-                    <br><br><br><br>
                 `;
-    
-                // Append generated content to the container
-                container.innerHTML += actionTemplate;
             }
-    
-            // Create multiple image containers with different starting indices
-            createImageContainer('A person is performing a pushup.', 0);
-            createImageContainer('A person is performing an arm wave.', 1);
-            createImageContainer('A person is doing the shoot dance.', 2);
-            createImageContainer('A person runs in a sprint.', 3);
-            createImageContainer('A person is doing the shoot dance.', 4);
-            createImageContainer('An astronaut is performing an arm wave.', 5);
-            createImageContainer('An astronaut is running in place.', 6);
-            createImageContainer('An astronaut is drinking from a cup.', 7);
-            createImageContainer('A person is shooting a soccer ball.', 8);
-            createImageContainer('A humanoid alien is performing a pushup.', 9);
-            createImageContainer('A humanoid alien is pouring water over their head as part of the ALS Ice Bucket Challenge.', 10);
-            createImageContainer('Two humanoid aliens are hugging.', 11);
+
+            createImageContainer3("A person is performing a pushup.", 0);
+            createImageContainer3("A person is performing an arm wave.", 1);
+            createImageContainer3("A person is doing the shoot dance.", 2);
+            createImageContainer3("A person runs in a sprint.", 3);
+            createImageContainer3("A person is doing the shoot dance.", 4);
+            createImageContainer3("An astronaut is performing an arm wave.", 5);
+            createImageContainer3("An astronaut is running in place.", 6);
+            createImageContainer3("An astronaut is drinking from a cup.", 7);
+            createImageContainer3("A person is shooting a soccer ball.", 8);
+            createImageContainer3("A humanoid alien is performing a pushup.", 9);
+            createImageContainer3("A humanoid alien pours water (ALS Ice Bucket Challenge).", 10);
+            createImageContainer3("Two humanoid aliens are hugging.", 11);
         </script>
-    <p><a href="#index">Back to Index</a></p>
+
+        <p><a href="#index">Back to Index</a></p>
+
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- SECTION 4 (ABLATIONS) -->
+    <!-- ========================================================= -->
+
+    <h2>Ablations</h2>
+
+    <section id="section4">
+
+        <h3 style="text-align:center;">Variants of FLASH and Their Meanings</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Variant</th>
+                    <th colspan="3">Motion Alignment Module</th>
+                    <th rowspan="2">Detail Enhancement Decoder</th>
+                </tr>
+                <tr>
+                    <th>Strong Augment</th>
+                    <th>Motion Align</th>
+                    <th>Correspondence Align</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>#1</td><td>×</td><td>×</td><td>×</td><td>×</td></tr>
+                <tr><td>#2</td><td>✓</td><td>×</td><td>×</td><td>×</td></tr>
+                <tr><td>#3</td><td>✓</td><td>✓</td><td>×</td><td>×</td></tr>
+                <tr><td>#4</td><td>✓</td><td>×</td><td>✓</td><td>×</td></tr>
+                <tr><td>#5</td><td>✓</td><td>✓</td><td>✓</td><td>×</td></tr>
+                <tr><td>#6</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+            </tbody>
+        </table>
+
+        <div id="image-gallery-4"></div>
+
+        <script>
+            function createImageContainer4(caption, id) {
+                const c = document.getElementById('image-gallery-4');
+
+                c.innerHTML += `
+                <h3>${caption}</h3>
+                <div class="image-container">
+                    <div class="column"><div class="column-text">Ref. Img</div>
+                        <img src="ablations/${id}.jpg">
+                    </div>
+
+                    <div class="column"><div class="column-text">#1</div>
+                        <video data-src="ablations/${id}-001.mp4" autoplay loop muted></video>
+                    </div>
+
+                    <div class="column"><div class="column-text">#2</div>
+                        <video data-src="ablations/${id}-002.mp4" autoplay loop muted></video>
+                    </div>
+
+                    <div class="column"><div class="column-text">#3</div>
+                        <video data-src="ablations/${id}-003.mp4" autoplay loop muted></video>
+                    </div>
+
+                    <div class="column"><div class="column-text">#4</div>
+                        <video data-src="ablations/${id}-004.mp4" autoplay loop muted></video>
+                    </div>
+
+                    <div class="column"><div class="column-text">#5</div>
+                        <video data-src="ablations/${id}-005.mp4" autoplay loop muted></video>
+                    </div>
+
+                    <div class="column"><div class="column-text">#6</div>
+                        <video data-src="ablations/${id}-006.mp4" autoplay loop muted></video>
+                    </div>
+                </div>
+            `;
+            }
+
+            createImageContainer4("A person paddles quickly in a canoe.", 0);
+            createImageContainer4("A person is shooting a soccer ball.", 1);
+            createImageContainer4("Two people are hugging.", 2);
+            createImageContainer4("A person runs in a sprint.", 3);
+        </script>
+
+        <p><a href="#index">Back to Index</a></p>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- SECTION 5 (Wan additional 8 actions) -->
+    <!-- ========================================================= -->
+
+    <h2>Comparison to Wan on Additional 8 Actions</h2>
+
+    <section id="section5">
+
+        <div id="wan-8-actions"></div>
+
+        <script>
+            function createWanContainer(action, caption, start_ind) {
+                const c = document.getElementById('wan-8-actions');
+                const idx = i => String(i);
+
+                c.innerHTML += `
+                    <h3>Action Description: ${caption}</h3>
+
+                    <div class="image-container">
+
+                        <div class="column">
+                            <div class="column-text">Ref. Img</div>
+                            <img src="8_actions/${action}_${idx(start_ind)}.jpg">
+                            <img src="8_actions/${action}_${idx(start_ind+1)}.jpg">
+                            <img src="8_actions/${action}_${idx(start_ind+2)}.jpg">
+                            <img src="8_actions/${action}_${idx(start_ind+3)}.jpg">
+                        </div>
+
+                        <div class="column">
+                            <div class="column-text">WAN</div>
+                            <video data-src="8_actions/${action}_${idx(start_ind)}_wan.mp4" autoplay loop muted></video>
+                            <video data-src="8_actions/${action}_${idx(start_ind+1)}_wan.mp4" autoplay loop muted></video>
+                            <video data-src="8_actions/${action}_${idx(start_ind+2)}_wan.mp4" autoplay loop muted></video>
+                            <video data-src="8_actions/${action}_${idx(start_ind+3)}_wan.mp4" autoplay loop muted></video>
+                        </div>
+
+                        <div class="column">
+                            <div class="column-text">FLASH</div>
+                            <video data-src="8_actions/${action}_${idx(start_ind)}_flash.mp4" autoplay loop muted></video>
+                            <video data-src="8_actions/${action}_${idx(start_ind+1)}_flash.mp4" autoplay loop muted></video>
+                            <video data-src="8_actions/${action}_${idx(start_ind+2)}_flash.mp4" autoplay loop muted></video>
+                            <video data-src="8_actions/${action}_${idx(start_ind+3)}_flash.mp4" autoplay loop muted></video>
+                        </div>
+
+                        <div class="column">
+                            <div class="column-text">Real Video</div>
+                            <video data-src="8_actions/${action}_${idx(start_ind)}.mp4" autoplay loop muted></video>
+                            <video data-src="8_actions/${action}_${idx(start_ind+1)}.mp4" autoplay loop muted></video>
+                            <video data-src="8_actions/${action}_${idx(start_ind+2)}.mp4" autoplay loop muted></video>
+                            <video data-src="8_actions/${action}_${idx(start_ind+3)}.mp4" autoplay loop muted></video>
+                        </div>
+
+                    </div>
+                `;
+            }
+
+            createWanContainer('backward_roll', 'A gymnast is rolling backward on the floor.', 1);
+            createWanContainer('bench_dip', 'A person is performing dips on a bench.', 1);
+            createWanContainer('burpee', 'An athlete is performing a burpee exercise.', 1);
+            createWanContainer('baseball_swing', 'A baseball player is swinging a bat.', 1);
+            createWanContainer('balancebeam_flip', 'A balance beam flip.', 1);
+            createWanContainer('balancebeam_rotate', 'A balance beam rotation.', 1);
+            createWanContainer('atlatl_throw', 'A person throws using an atlatl.', 1);
+            createWanContainer('axe_throwing', 'A person throws an axe at a target.', 1);
+        </script>
+
+        <p><a href="#index">Back to Index</a></p>
     </section>
     <br><br>
 
 <!-- BibTeX Section -->
-<div class="bibtex-container">
-    <div class="bibtex-title">BibTeX</div>
+<section id="bibtex">
+    <div class="bibtex-container">
+        <div class="bibtex-title">BibTeX</div>
         <div class="bibtex-content">
-        <pre>
-@article{li2025learning,
-    title={Learning to Animate Images from A Few Videos to Portray Delicate Human Actions},
-    author={Li, Haoxin and Yu, Yingchen and Wu, Qilong and Zhang, Hanwang and Bai, Song and Li, Boyang},
-    journal={arXiv preprint arXiv:2503.00276},
-    year={2025}
-}</pre>
+            <pre>
+@inproceedings{FLASH-2025,
+    author = {Haoxin Li and Yingchen Yu and Qilong Wu and Hanwang Zhang and Song Bai and Boyang Li},
+    title = {Learning to Animate Images from A Few Videos to Portray Delicate Human Actions.},
+    journal = {Winter Conference on Applications of Computer Vision (WACV)},
+    year = {2026}
+}
+            </pre>
         </div>
     </div>
-</div>
-<br><br>
+</section>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const videos = document.querySelectorAll("video[data-src]");
+    <!-- ========================================================= -->
+    <!-- SHARED LAZY LOADING SCRIPT -->
+    <!-- ========================================================= -->
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            let video = entry.target;
-            if (entry.isIntersecting) {
-                if (video.dataset.src) {
-                    video.src = video.dataset.src;
-                    video.removeAttribute("data-src");
-                }
-                video.play();
-            } else {
-                video.pause();
-            }
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const videos = document.querySelectorAll("video[data-src]");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    let v = entry.target;
+                    if (entry.isIntersecting) {
+                        if (v.dataset.src) {
+                            v.src = v.dataset.src;
+                            v.removeAttribute("data-src");
+                        }
+                        v.play();
+                    } else {
+                        v.pause();
+                    }
+                });
+            }, { threshold: 0.9 });
+
+            videos.forEach(v => observer.observe(v));
         });
-    }, { threshold: 0.95 });
-
-    videos.forEach(video => observer.observe(video));
-});
-</script>
+    </script>
 
 </body>
-<br>
 </html>
